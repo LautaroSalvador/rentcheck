@@ -264,7 +264,7 @@ useEffect(() => {
                   <p style={{ color: '#74777f' }}>{resultado.mensaje}</p>
                 </div>
               ) : (() => {
-                const c = veredictoConfig[resultado.veredicto]
+                const c = veredictoConfig[resultado.veredicto as keyof typeof veredictoConfig]
                 const desvio = resultado.desvio_porcentual
                 const posicion = Math.min(Math.max(50 + desvio, 5), 95)
                 return (
