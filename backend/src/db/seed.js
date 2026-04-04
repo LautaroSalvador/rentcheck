@@ -82,7 +82,7 @@ const variacion = (base, pct) => {
 
 const seed = async () => {
   console.log('Limpiando datos anteriores...')
-  await db.query("DELETE FROM propiedades WHERE portal = 'seed'")
+  await db.query("TRUNCATE TABLE propiedades")
 
   let total = 0
 
@@ -93,7 +93,7 @@ const seed = async () => {
       const base = precios[ambientes]
       if (!base) continue
 
-      for (let i = 0; i < 40; i++) {
+      for (let i = 0; i < 5; i++) {
         const precio = variacion(base, 22)
         const superficie = ambientes * 28 + Math.round(Math.random() * 25)
         const moneda = Math.random() < 0.08 ? 'USD' : 'ARS'
