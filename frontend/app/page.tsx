@@ -407,7 +407,7 @@ useEffect(() => {
         {mostrarAuth && (
   <AuthModal
     onClose={() => setMostrarAuth(false)}
-    onLogin={(u) => setUsuario(u)}
+    onLogin={(u: any) => setUsuario(u)}
   />
 )}
       </div>
