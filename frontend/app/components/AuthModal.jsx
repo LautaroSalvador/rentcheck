@@ -14,8 +14,8 @@ export default function AuthModal({ onClose, onLogin }) {
 
     try {
       const url = modo === 'login'
-        ? 'https://rentcheck-production.up.railway.app/api/auth/login'
-        : 'https://rentcheck-production.up.railway.app/api/auth/register'
+  ? `${process.env.NEXT_PUBLIC_API_URL}/api/auth/login`
+  : `${process.env.NEXT_PUBLIC_API_URL}/api/auth/register`
 
       const body = modo === 'login'
         ? { email: forma.email, password: forma.password }
