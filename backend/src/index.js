@@ -5,9 +5,9 @@ const db = require('./db')
 const start = async () => {
   try {
     // CORS primero, antes que todo
-    await fastify.register(require('@fastify/cors'), {
-      origin: ['http://localhost:3000', 'https://rentcheck-https://rentcheck-ik7k1oj3p-lautarosalvadors-projects.vercel.app']
-    })
+   await fastify.register(require('@fastify/cors'), {
+  origin: ['http://localhost:3000', 'https://rentcheck-ik7k1oj3p-lautarosalvadors-projects.vercel.app']
+})
 
     // Rutas
     fastify.get('/health', async () => {
