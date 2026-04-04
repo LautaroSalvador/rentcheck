@@ -13,8 +13,8 @@ export default function AuthModal({ onClose, onLogin }) {
 
     try {
       const url = modo === 'login'
-        ? 'http://localhost:3001/api/auth/login'
-        : 'http://localhost:3001/api/auth/register'
+        ? 'https://rentcheck-production.up.railway.app/api/auth/login'
+        : 'https://rentcheck-production.up.railway.app/api/auth/register'
 
       const body = modo === 'login'
         ? { email: forma.email, password: forma.password }
