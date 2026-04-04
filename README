@@ -1,0 +1,103 @@
+# RentCheck 🏠
+
+Plataforma web para analizar si el precio de un alquiler en Argentina es justo, sobrevaluado o una oportunidad de mercado.
+
+**[Ver demo en vivo →](https://rentcheck-olive.vercel.app)**
+
+---
+
+## ¿Qué hace?
+
+RentCheck compara el precio de un alquiler contra cientos de publicaciones reales del mercado y devuelve un veredicto objetivo: **Buen Precio**, **Precio Justo** o **Sobrevaluado**, con estadísticas detalladas y un análisis narrativo generado por IA.
+
+## Funcionalidades
+
+- **Análisis de precio** — Compará cualquier alquiler contra la mediana, promedio y percentiles del mercado para esa zona y tipología
+- **Análisis con IA** — Reporte explicativo generado por Claude (Anthropic) con contexto de mercado y recomendaciones concretas
+- **Mapa interactivo** — Visualizá la ubicación del barrio consultado
+- **Sistema de usuarios** — Registro e inicio de sesión con autenticación JWT
+- **Datos reales** — Scraper funcional de Zonaprop + dataset de más de 600 propiedades del mercado argentino
+
+## Stack tecnológico
+
+| Capa | Tecnología |
+|------|-----------|
+| Frontend | Next.js 16, Tailwind CSS, React-Leaflet |
+| Backend | Node.js, Fastify |
+| Base de datos | PostgreSQL |
+| IA | Claude API (Anthropic) |
+| Autenticación | JWT + bcrypt |
+| Scraping | Playwright |
+| Deploy frontend | Vercel |
+| Deploy backend | Railway |
+
+## Arquitectura
+rentcheck/
+├── frontend/          # Next.js app
+│   ├── app/
+│   │   ├── page.tsx           # Pantalla principal
+│   │   └── components/
+│   │       ├── Mapa.jsx       # Mapa interactivo
+│   │       └── AuthModal.jsx  # Login / Registro
+└── backend/           # API REST con Fastify
+└── src/
+├── index.js           # Servidor principal
+├── routes/            # Endpoints de la API
+├── services/          # Lógica de negocio e IA
+├── scrapers/          # Scraper de Zonaprop
+└── db/                # Conexión y seed de PostgreSQL
+
+## Cómo correrlo localmente
+
+### Requisitos
+- Node.js 18+
+- PostgreSQL
+- API key de Anthropic (opcional, solo para análisis con IA)
+
+### Backend
+```bash
+cd backend
+npm install
+# Crear archivo .env con las variables necesarias
+npm run dev
+```
+
+### Variables de entorno del backend
+
+PORT=3001
+DATABASE_URL=postgresql://usuario:password@localhost:5432/rentcheck
+JWT_SECRET=tu_secret
+ANTHROPIC_API_KEY=tu_api_key
+
+### Frontend
+```bash
+cd frontend
+npm install
+# Crear archivo .env.local
+npm run dev
+```
+
+### Variables de entorno del frontend
+
+NEXT_PUBLIC_API_URL=http://localhost:3001
+### Poblar la base de datos
+```bash
+cd backend
+node src/db/seed.js
+```
+
+## API Endpoints
+
+| Método | Endpoint | Descripción |
+|--------|----------|-------------|
+| GET | `/api/analizar` | Análisis de precio por zona y ambientes |
+| POST | `/api/analisis-ia` | Reporte narrativo generado por IA |
+| GET | `/api/zonas` | Estadísticas de todas las zonas |
+| POST | `/api/auth/register` | Registro de usuario |
+| POST | `/api/auth/login` | Inicio de sesión |
+| GET | `/api/auth/me` | Verificar token |
+
+## Autor
+
+**Lautaro Salvador**  
+[GitHub](https://github.com/LautaroSalvador)
