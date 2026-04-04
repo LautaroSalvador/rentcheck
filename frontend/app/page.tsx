@@ -17,7 +17,7 @@ const barrios = [
 
 export default function Home() {
   const [forma, setForma] = useState({ zona: '', ambientes: '', precio: '', moneda: 'ARS' })
-const [resultado, setResultado] = useState(null)
+const [resultado, setResultado] = useState<any>(null)
 const [cargando, setCargando] = useState(false)
 const [error, setError] = useState(null)
 const [barrioSeleccionado, setBarrioSeleccionado] = useState(null)
@@ -44,7 +44,7 @@ useEffect(() => {
   setCargandoIA(true)
   setAnalisisIA(null)
   try {
-    const res = await fetch('http://localhost:3001/api/analisis-ia', {
+    const res = await fetch('https://rentcheck-production.up.railway.app/api/analisis-ia', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -76,7 +76,7 @@ useEffect(() => {
     setAnalisisIA(null) 
     try {
       const params = new URLSearchParams(forma)
-      const res = await fetch(`http://localhost:3001/api/analizar?${params}`)
+      const res = await fetch(`https://rentcheck-production.up.railway.app/api/analizar?${params}`)
       const data = await res.json()
       setResultado(data)
     } catch {
