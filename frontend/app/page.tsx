@@ -18,13 +18,13 @@ const barrios = [
 export default function Home() {
   const [forma, setForma] = useState({ zona: '', ambientes: '', precio: '', moneda: 'ARS' })
 const [resultado, setResultado] = useState<any>(null)
-const [cargando, setCargando] = useState(false)
-const [error, setError] = useState(null)
+const [cargando, setCargando] = useState<any>(false)
+const [error, setError] = useState<any>(null)
 const [barrioSeleccionado, setBarrioSeleccionado] = useState<any>(null)
 const [analisisIA, setAnalisisIA] = useState<any>(null)
-const [cargandoIA, setCargandoIA] = useState(false)
-const [mostrarAuth, setMostrarAuth] = useState(false)
-const [usuario, setUsuario] = useState(null)
+const [cargandoIA, setCargandoIA] = useState<any>(false)
+const [mostrarAuth, setMostrarAuth] = useState<any>(false)
+const [usuario, setUsuario] = useState<any>(null)
   
 useEffect(() => {
   const usuarioGuardado = localStorage.getItem('rentcheck_usuario')
