@@ -2,15 +2,13 @@
 
 Plataforma web para analizar si el precio de un alquiler en Argentina es justo, sobrevaluado o una oportunidad de mercado.
 
-**[Ver demo en vivo →](https://rentcheck-olive.vercel.app)**
+Ver demo en vivo → https://rentcheck-olive.vercel.app
 
----
-
-## ¿Qué hace?
+¿Qué hace?
 
 RentCheck compara el precio de un alquiler contra cientos de publicaciones reales del mercado y devuelve un veredicto objetivo: **Buen Precio**, **Precio Justo** o **Sobrevaluado**, con estadísticas detalladas y un análisis narrativo generado por IA.
 
-## Funcionalidades
+Funcionalidades
 
 - **Análisis de precio** — Compará cualquier alquiler contra la mediana, promedio y percentiles del mercado para esa zona y tipología
 - **Análisis con IA** — Reporte explicativo generado por Claude (Anthropic) con contexto de mercado y recomendaciones concretas
@@ -18,7 +16,7 @@ RentCheck compara el precio de un alquiler contra cientos de publicaciones reale
 - **Sistema de usuarios** — Registro e inicio de sesión con autenticación JWT
 - **Datos reales** — Scraper funcional de Zonaprop + dataset de más de 600 propiedades del mercado argentino
 
-## Stack tecnológico
+Stack tecnológico
 
 | Capa | Tecnología |
 |------|-----------|
@@ -31,7 +29,7 @@ RentCheck compara el precio de un alquiler contra cientos de publicaciones reale
 | Deploy frontend | Vercel |
 | Deploy backend | Railway |
 
-## Arquitectura
+Arquitectura
 rentcheck/
 ├── frontend/          # Next.js app
 │   ├── app/
@@ -54,7 +52,7 @@ rentcheck/
 - PostgreSQL
 - API key de Anthropic (opcional, solo para análisis con IA)
 
-### Backend
+Backend
 ```bash
 cd backend
 npm install
@@ -62,14 +60,14 @@ npm install
 npm run dev
 ```
 
-### Variables de entorno del backend
+Variables de entorno del backend
 
 PORT=3001
 DATABASE_URL=postgresql://usuario:password@localhost:5432/rentcheck
 JWT_SECRET=tu_secret
 ANTHROPIC_API_KEY=tu_api_key
 
-### Frontend
+Frontend
 ```bash
 cd frontend
 npm install
@@ -77,16 +75,15 @@ npm install
 npm run dev
 ```
 
-### Variables de entorno del frontend
+Variables de entorno del frontend
 
 NEXT_PUBLIC_API_URL=http://localhost:3001
-### Poblar la base de datos
+Poblar la base de datos
 ```bash
 cd backend
 node src/db/seed.js
 ```
-
-## API Endpoints
+API Endpoints
 
 | Método | Endpoint | Descripción |
 |--------|----------|-------------|
@@ -97,7 +94,7 @@ node src/db/seed.js
 | POST | `/api/auth/login` | Inicio de sesión |
 | GET | `/api/auth/me` | Verificar token |
 
-## Autor
+Autor
 
 **Lautaro Salvador**  
 [GitHub](https://github.com/LautaroSalvador)
